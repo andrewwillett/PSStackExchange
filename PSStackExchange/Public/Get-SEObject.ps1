@@ -94,7 +94,7 @@
             $MaxResults = [int]::MaxValue
         }
 
-    #Build up URI
+    #Build up URI - add comment
         $BaseUri = Join-Parts -Separator "/" -Parts $Uri, $Version, $($object.ToLower())
 
     #Build up Invoke-RestMethod and Get-SEData parameters for splatting
