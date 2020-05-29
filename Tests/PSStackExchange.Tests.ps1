@@ -16,7 +16,7 @@ Describe "Get-SEObject PS$PSVersion Integrations tests" {
 
         It 'should get valid data' {
             $Output = Get-SEObject -Object sites
-            $Output.count -gt 100 | Should be $True
+            $Output.count -gt 100 | Should -Be $True
             $Output.name -contains 'stack overflow'
         }
     }
@@ -39,13 +39,13 @@ Describe "Get-SEObject PS$PSVersion Unit tests" {
             $Output = Get-SEObject -Object sites
             
             # Verify Maxresults
-            $Output[3] | Should Be ([int]::MaxValue)
+            $Output[3] | Should -Be ([int]::MaxValue)
 
             # Verify IRMParams
             # Hard coding this expected value is delicate, will break if default URI or Version parameter values change
-            $Output[1].Uri | Should Be 'https://api.stackexchange.com/2.2/sites'
+            $Output[1].Uri | Should -Be 'https://api.stackexchange.com/2.2/sites'
 
-            $Output[1].Body.Pagesize | Should Be 30
+            $Output[1].Body.Pagesize | Should -Be 30
         }
 
     }
